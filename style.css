@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Prevents accidental text selection */
+}
+
+/* BODY BACKGROUND */
+body {
+    background: linear-gradient(145deg, #1e2b3c 0%, #0f1a24 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+    padding: 1.5rem;
+}
+
+/* MAIN CALCULATOR CARD */
+.calculator {
+    background: rgba(22, 34, 48, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 2.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 480px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ========== DISPLAY SCREEN ========== */
+.display {
+    background: #0b1219;
+    border-radius: 1.8rem;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.8rem;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05);
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Small expression text (like "5 + 3") */
+.expression {
+    font-size: 1.2rem;
+    color: #8aaec0;
+    min-height: 1.8rem;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    font-family: 'Courier New', monospace;
+}
+
+/* Main big number display */
+.current-input {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #f0f9ff;
+    line-height: 1.2;
+    margin-top: 0.3rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-family: 'Segoe UI', 'Courier New', monospace;
+}
+
+/* ========== BUTTON GRID ========== */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+}
+
+/* ALL BUTTONS base style */
+button {
+    background: #1f2f3a;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 1.5rem;
+    color: #eef4ff;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button press effect */
+button:active {
+    transform: scale(0.96);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* OPERATOR buttons (+, -, ×, ÷) */
+.operator {
+    background: #e68a2e;
+    color: white;
+    font-weight: 700;
+    font-size: 1.8rem;
+    box-shadow: 0 3px 6px rgba(230, 138, 46, 0.2);
+}
+
+/* EQUALS button */
+.equals {
+    background: #2c9c5e;
+    box-shadow: 0 3px 6px rgba(44, 156, 94, 0.3);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+/* CLEAR button (AC) */
+.clear {
+    background: #b34e4e;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.clear:active {
+    background: #9e3e3e;
+}
+
+/* DELETE button (backspace) */
+.delete {
+    background: #4f6f8a;
+    font-size: 1.4rem;
+}
+
+/* Zero button spans 2 columns */
+.span-two {
+    grid-column: span 2;
+}
+
+/* ========== KEYBOARD HINT STYLING ========== */
+.key-hint {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #7f9eb5;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.3px;
+}
+
+.key-hint span {
+    background: #2a3e4b;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    font-family: monospace;
+    font-weight: bold;
+    margin: 0 2px;
+}
+
+/* ========== RESPONSIVE DESIGN (Mobile friendly) ========== */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 1rem;
+    }
+    .buttons {
+        gap: 0.6rem;
+    }
+    button {
+        font-size: 1.4rem;
+        padding: 0.8rem 0;
+        border-radius: 1.2rem;
+    }
+    .current-input {
+        font-size: 2.3rem;
+    }
+}
+
+/* Accessibility: Focus ring for keyboard navigation */
+button:focus-visible {
+    outline: 2px solid #ffb347;
+    outline-offset: 2px;
+}
