@@ -102,25 +102,7 @@ This project helped me practice:
 * State Management
 * Clean Code Structure
 
----
 
-## ⚙️ Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/calculator-project.git
-```
-
-2. Open the project folder
-
-```bash
-cd calculator-project
-```
-
-3. Open `index.html` in your browser
-
----
 
 ## 📈 Future Improvements
 
